@@ -1,1 +1,1 @@
-Hai GitHub, ini adalah repository pertama saya.
+Hai GitHub, ini adalah repository pertama saya
