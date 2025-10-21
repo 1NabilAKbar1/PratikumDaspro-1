@@ -1,6 +1,5 @@
 package jobsheet6;
 
-import java.net.Socket;
 import java.util.Scanner;
 public class lulus {
     public static void main(String[] args) {
@@ -27,7 +26,6 @@ public class lulus {
         System.out.print("Nilai Tugas : ");
         double nilaiTugas2 = sc.nextDouble();
         
-
         double nilaiAkhir1 = (nilaiUTS1 * 0.3) + (nilaiUAS1 * 0.4) + (nilaiTugas1 * 0.3);
         double nilaiAkhir2 = (nilaiUTS2 * 0.3) + (nilaiUAS2 * 0.4) + (nilaiTugas2 * 0.3);
 
@@ -72,7 +70,7 @@ public class lulus {
 
         double rata_rata = (nilaiAkhir1 + nilaiAkhir2) /2 ;
         String statusSemester;
-        if (statusNilai1.equals("LULUS")&& statusNilai2.equals("LULUS")) {
+        if (statusNilai1.equals("LULUS") && statusNilai2.equals("LULUS")) {
             if (rata_rata >= 70) {
                 statusSemester = "LULUS";
             } else {
