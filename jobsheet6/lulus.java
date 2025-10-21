@@ -4,7 +4,7 @@ import java.util.Scanner;
 public class lulus {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        System.out.println("\n==== INPUT DATA MAHASISWA====");
+        System.out.println("\n==== INPUT DATA MAHASISWA ====");
         System.out.print("Nama: ");
         String nama = sc.nextLine();
         System.out.print("NIM : ");
@@ -31,8 +31,17 @@ public class lulus {
 
         String statusNilai1;
         String statusNilai2;
-        statusNilai1 = (nilaiAkhir1 >= 60) ? "LULUS" : "TIDAK LULUS";
-        statusNilai2 = (nilaiAkhir2 >= 60) ? "LULUS" : "TIDAK LULUS";
+       if (nilaiAkhir1 >= 60) {
+            statusNilai1 = "LULUS";
+       } else {
+        statusNilai1 = "TIDAK LULUS";
+       } 
+        if (nilaiAkhir2 >= 60) {
+            statusNilai2 = "LULUS";
+       } else {
+        statusNilai2 = "TIDAK LULUS";
+       } 
+       
 
         String hurufNilai1;
         if (nilaiAkhir1 > 80) {
@@ -70,7 +79,7 @@ public class lulus {
 
         double rata_rata = (nilaiAkhir1 + nilaiAkhir2) /2 ;
         String statusSemester;
-        if (statusNilai1.equals("LULUS") && statusNilai2.equals("LULUS")) {
+        if (statusNilai1 == "LULUS" && statusNilai2 == "LULUS") {
             if (rata_rata >= 70) {
                 statusSemester = "LULUS";
             } else {
