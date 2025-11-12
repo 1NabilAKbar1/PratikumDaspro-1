@@ -3,27 +3,66 @@ import java.util.Scanner;
 public class BioskopWithScanner18 {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-        int baris, kolom;
+        int baris, kolom, menu;
         String nama;
         String next;
         String[][] penonton = new String[4][2];
 
         while (true) {
-            System.out.print("Masukkan nama: ");
-            nama = sc.nextLine();
-            System.out.print("Masukkan baris: ");
-            baris = sc.nextInt();
-            System.out.print("Masukkan kolom: ");
-            kolom = sc.nextInt();
+            System.out.println("\n === MENU BIOSKOP ===");
+            System.out.println("1. Input data penonton");
+            System.out.println("2. Tampilkan daftar ");
+            System.out.println("3. Exit");
+            System.out.print("Pilih menu: ");
+            menu = sc.nextInt();
             sc.nextLine();
             
-            penonton[baris-1][kolom-1] = nama;
+            if (menu == 1) {
+                while (true) {
+                    System.out.print("Masukkan nama penonton: ");
+                    nama = sc.nextLine();
+                    System.out.print("Masukkan baris: ");
+                    baris = sc.nextInt();
+                    System.out.print("Masukkan kolom: ");
+                    kolom = sc.nextInt();
+                    sc.nextLine();
 
-            System.out.print("Input penonton lainnya> (y/n): ");
-            next = sc.nextLine();
-            if (next.equalsIgnoreCase("n")) {
+                    if (baris < 1 || baris > 4 || kolom < 1 || kolom > 2 ) {
+                        System.out.println("Nomor baris dan kolom tidak tersedia. Ulangi input");
+                        continue;
+                    }
+                    if (penonton[baris-1][kolom-1] !=null ) {
+                        System.out.println("Kursi telah diisi. Pilihlah kursi yang lain.");
+                        continue;
+                    }
+
+                    penonton[baris-1][kolom-1] = nama;
+                    System.out.print("Input penonton lainnya? (y/n): ");
+                    next = sc.nextLine();
+                    if (next.equalsIgnoreCase("n")) {
+                        break;
+                    }
+                }
+            } else if (menu == 2) {
+                System.out.println("\n --- Daftar Penonton ---");
+                for (int i = 0; i < penonton.length; i++) {
+                    for (int j = 0; j < penonton[i].length; j++) {
+                        if (penonton[i][j] == null) {
+                            System.out.print("***\t");
+                        } else {
+                            System.out.print(penonton[i][j] +"\t");
+                        }
+                    }
+                    System.out.println();
+                }
+            } else if (menu == 3) {
+                System.out.println("Exit");
                 break;
+            } else {
+                System.out.println("Menu tidak tersedia");
             }
+
+
         }
     }
 }
